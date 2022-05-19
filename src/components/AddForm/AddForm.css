@@ -1,0 +1,41 @@
+.add-form {
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    max-width: 800px;
+    border: 1px solid #222;
+    padding: 2rem;
+}
+
+.add-form label {
+    display: block;
+    margin-top: 20px;
+    font-weight: bold;
+    margin-bottom: 25px;
+}
+
+.add-form label small {
+    font-weight: normal;
+}
+
+.add-form input {
+    width: 100%;
+    margin-top: 10px;
+    padding: 10px;
+}
+
+.add-form textarea {
+    min-width: 100%;
+    margin-top: 10px;
+    padding: 10px;
+    resize: vertical;
+}
+
+.add-form button {
+    display: inline-block;
+    padding: 10px;
+    width: 100%;
+    cursor: pointer;
+}
