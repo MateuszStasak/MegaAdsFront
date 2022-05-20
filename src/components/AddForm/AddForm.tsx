@@ -20,13 +20,14 @@ export const AddForm = () => {
         zip: '',
     });
 
-    const address = `${form.city}, ${form.street}, ${form.zip}`
+    const address = `${form.city}, ${form.street}`;
+    console.log(address);
 
     const saveAd = async (e: SyntheticEvent) => {
         e.preventDefault();
         setLoading(true);
         try {
-           const {lat, lon} = await geocode(address);
+           const {latitude, longitude} = await geocode(address);
             const res = await fetch(`http://localhost:3001/ad`, {
                 method: 'POST',
                 headers: {
@@ -34,8 +35,8 @@ export const AddForm = () => {
                 },
                 body: JSON.stringify({
                     ...form,
-                    lat,
-                    lon,
+                    latitude,
+                    longitude,
                 }),
             });
             const data = await res.json();
@@ -61,8 +62,9 @@ export const AddForm = () => {
     }
 
     return (
-        <form className="add-form" action="" onSubmit={saveAd}>
-            <h1>Dodawanie ogłoszenia</h1>
+        <>
+        <form className="add-form" onSubmit={saveAd}>
+            <h1>Dodaj swoje ogłoszenie</h1>
             <p>
                 <label>
                     Nazwa: <br/>
@@ -109,7 +111,7 @@ export const AddForm = () => {
                     Miasto: <br/>
                     <input
                         type="text"
-                        name="address"
+                        name="city"
                         required
                         maxLength={99}
                         value={form.city}
@@ -120,28 +122,17 @@ export const AddForm = () => {
                         Ulica: <br/>
                         <input
                             type="text"
-                            name="address"
+                            name="street"
                             required
                             maxLength={99}
                             value={form.street}
                             onChange={(e: { target: { value: string | number; }; }) => updateForm('street', e.target.value)}
                         />
                 </label>
-                <label>
-                        Kod pocztowy: <br/>
-                        <input
-                            type="text"
-                            name="address"
-                            required
-                            maxLength={99}
-                            pattern="^(?(^00000(|-0000))|(\d{5}(|-\d{4})))$"
-                            value={form.zip}
-                            inputMode="numeric"
-                            onChange={(e: { target: { value: string | number; }; }) => updateForm('zip', +e.target.value)}
-                        />
-                </label>
                 <Button text="Zapisz"/>
             </p>
         </form>
+        <div><p></p></div>
+        </>
     )
 }

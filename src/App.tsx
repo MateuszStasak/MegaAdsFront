@@ -16,10 +16,12 @@ export const App = () => {
      <>
          <SearchContext.Provider value={{search, setSearch}}>
            <Header/>
+             <div className="bg">
              <Routes>
                  <Route path="/" element={ <Map/>}/>
                  <Route path="/add" element={ <AddForm/>}/>
              </Routes>
+             </div>
          </SearchContext.Provider>
      </>
   );

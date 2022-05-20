@@ -23,7 +23,7 @@ export const Header = () => {
             </h1>
             <Button to="/add" text='Dodaj ogłoszenie' />
             <form className="search" onSubmit={setSearchFromLocalState}>
-                <input value={inputValue} onChange={(e) => setInputValue(e.target.value)} type="text"/>
+                <input type="search" value={inputValue} onChange={(e) => setInputValue(e.target.value)}/>
                 <Button text='Szukaj' />
             </form>
         </header>
