@@ -6,6 +6,7 @@ import React, {
 import "./AddForm.css";
 import {Button} from "../common/Button";
 import {geocode} from "../../utils/geocoding";
+import {apiUrl} from "../../config/api";
 
 export const AddForm = () => {
     const [loading, setLoading] = useState(false);
@@ -28,7 +29,7 @@ export const AddForm = () => {
         setLoading(true);
         try {
            const {latitude, longitude} = await geocode(address);
-            const res = await fetch(`http://localhost:3001/ad`, {
+            const res = await fetch(`${apiUrl}/ad`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
