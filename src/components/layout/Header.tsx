@@ -6,6 +6,7 @@ import { Button } from '../common/Button';
 import {SearchContext} from "../../contexts/search.context";
 
 import './Header.css'
+import {Link} from "react-router-dom";
 
 export const Header = () => {
     const {search, setSearch} = useContext(SearchContext);
@@ -18,9 +19,11 @@ export const Header = () => {
 
     return (
         <header>
+            <Link className="link" to="/">
             <h1>
                 <strong>Mega </strong> Ogłoszenia
             </h1>
+            </Link>
             <Button to="/add" text='Dodaj ogłoszenie' />
             <form className="search" onSubmit={setSearchFromLocalState}>
                 <input type="search" value={inputValue} onChange={(e) => setInputValue(e.target.value)}/>

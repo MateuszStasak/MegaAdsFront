@@ -1,16 +1,36 @@
 .add-form {
-    position: absolute;
-    top: 60%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 100%;
+    width: 70vw;
     max-width: 800px;
     padding: 2rem;
     color: #3b6ca4;
-    margin-top: 50px;
-    margin-bottom: 50px;
+    margin: 6% auto 0 auto;
     backdrop-filter: blur(5px); background-color: rgba(255, 255, 255, 0.1); border-radius: 26px; box-shadow: 35px 35px 68px 0px rgba(59, 108, 164, 0.5), inset -8px -8px 16px 0px rgba(59, 108, 164, 0.6), inset 0px 11px 28px 0px rgb(255, 255, 255);
 }
+
+
+@media screen and (max-width: 1400px) {
+    .add-form {
+        width: 60vw;
+        max-width: 600px;
+        padding: 2rem;
+        margin: 8% auto 0 auto;
+    }
+}
+
+
+@media screen and (max-width: 768px) {
+    .add-form {
+        margin: 170px auto 0 auto;
+        width: 95vw;
+        padding: 1rem;
+    }
+
+    .add-form h1 {
+        font-size: 1.5rem;
+    }
+}
+
+
 
 .add-form label {
     display: block;
@@ -46,6 +66,15 @@
     line-height: 2.4rem;
 }
 
+@media screen and (max-width: 768px) {
+    .add-form button {
+        display: block;
+        height: 38px;
+        line-height: 38px;
+        padding: 2px 0;
+    }
+}
+
 
 .add-form input, .add-form textarea {
     width: 100%;
@@ -66,4 +95,5 @@
     background: #adc1e7;
     border-color: #3b6ca4;
 }
+
 

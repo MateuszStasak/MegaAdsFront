@@ -25,14 +25,14 @@ export const Map = () => {
 
     return (
             <div className="map">
-                <MapContainer center={[21.017532,52.237049]} zoom={15}>
+                <MapContainer center={[52.237049,21.017532]} zoom={13}>
                     <TileLayer
                         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                         attribution="&copy; <a href='https://www.openstreetmap.org/copyright'>OpenStreetMap</a> & contributors"
                     />
                     {ads.map(ad => (
                         <Marker key={ad.id} position={[ad.latitude, ad.longitude]}>
-                        <Popup>
+                        <Popup className="popup">
                             <SingleAd id={ad.id}/>
                         </Popup>
                         </Marker>

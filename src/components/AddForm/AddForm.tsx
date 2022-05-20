@@ -10,11 +10,11 @@ import {apiUrl} from "../../config/api";
 
 export const AddForm = () => {
     const [loading, setLoading] = useState(false);
-    const [id, setId] = useState(null);
+    const [id, setId] = useState('');
     const [form, setForm] = useState({
         name: '',
         description: '',
-        price: 0,
+        price: '',
         url: '',
         city: '',
         street: '',
@@ -22,7 +22,6 @@ export const AddForm = () => {
     });
 
     const address = `${form.city}, ${form.street}`;
-    console.log(address);
 
     const saveAd = async (e: SyntheticEvent) => {
         e.preventDefault();
@@ -35,7 +34,10 @@ export const AddForm = () => {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({
-                    ...form,
+                    name: form.name,
+                    description: form.description,
+                    price: form.price,
+                    url: form.url,
                     latitude,
                     longitude,
                 }),
@@ -63,8 +65,8 @@ export const AddForm = () => {
     }
 
     return (
-        <>
-        <form className="add-form" onSubmit={saveAd}>
+
+        <form action="" className="add-form" onSubmit={saveAd}>
             <h1>Dodaj swoje ogłoszenie</h1>
             <p>
                 <label>
@@ -96,7 +98,7 @@ export const AddForm = () => {
                         value={form.price}
                         onChange={(e: { target: { value: string | number; }; }) => updateForm('price', +e.target.value)}
                     />
-                    <small> zero w polu, aby nie wyświetlać ceny.</small>
+                    <small> wpisz zero w polu, aby nie wyświetlać ceny</small>
                 </label>
                 <label>
                     Adres URL: <br/>
@@ -133,7 +135,5 @@ export const AddForm = () => {
                 <Button text="Zapisz"/>
             </p>
         </form>
-        <div><p></p></div>
-        </>
     )
 }
