@@ -2,3 +2,25 @@
     background: red;
     height: calc(100vh - 47px);
 }
+
+.leaflet-container {
+    height: 100%;
+}
+
+.leaflet-popup-content-wrapper, .leaflet-popup-tip {
+    backdrop-filter: blur(5px); background-color: rgba(255, 255, 255, 1); border-radius: 26px; box-shadow: 35px 35px 68px 0px rgba(59, 108, 164, 0.5), inset -8px -8px 16px 0px rgba(59, 108, 164, 0.6), inset 0px 11px 28px 0px rgb(255, 255, 255);
+
+}
+
+.leaflet-popup-tip {
+    border-radius: 0;
+}
+
+.leaflet-popup-close-button {
+    padding-top: 7px;
+    padding-right: 10px;
+}
+
+.leaflet-popup-close-button>span {
+    font-size: 1.8rem;
+}

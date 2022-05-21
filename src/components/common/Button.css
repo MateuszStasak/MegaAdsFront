@@ -1,5 +1,5 @@
-button {
-    background-color: #2A913E;
+button, .button {
+    background-color: #3b6ca4;
     border: 0;
     border-radius: 2px;
     color: white;
@@ -7,4 +7,7 @@ button {
     font-weight: 700;
     font-size: 0.8rem;
     padding: 1px 35px;
+    line-height: 2.1rem;
+    text-decoration: none;
+    cursor: pointer;
 }
